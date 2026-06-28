@@ -3,1050 +3,948 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Terekholkar | Business Analyst Portfolio</title>
+    <meta name="description" content="Shubham Terekholkar – Business Analyst | Healthcare & Optical Analytics | Power BI, SQL, Tableau | Mumbai, India">
+    <title>Shubham Terekholkar | Business Analyst</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #3498db;
-            --light: #ecf0f1;
-            --dark: #1a252f;
-            --gray: #7f8c8d;
-            --light-gray: #bdc3c7;
-            --success: #2ecc71;
-            --contact-bg: #2c3e50;
-            --contact-header: #3498db;
+            --primary: #1a2b3c;
+            --accent: #00a8ff;
+            --accent-hover: #0090e0;
+            --bg: #f9fbfd;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.04);
+            --shadow-hover: 0 20px 35px rgba(0,0,0,0.08);
+            --radius: 16px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
             overflow-x: hidden;
         }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Montserrat', sans-serif;
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
             color: var(--primary);
-            margin-bottom: 1rem;
+            line-height: 1.3;
         }
-        
+
         a {
             text-decoration: none;
             color: var(--accent);
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
-        
+
         a:hover {
-            color: #2980b9;
+            color: var(--accent-hover);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
-        
+
+        /* Buttons */
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 12px 28px;
-            background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: 500;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid transparent;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            text-decoration: none;
         }
-        
-        .btn:hover {
-            background: rgba(52, 152, 219, 0.1);
-        }
-        
+
         .btn-primary {
             background: var(--accent);
-            color: white;
+            color: #fff;
+            border-color: var(--accent);
         }
-        
+
         .btn-primary:hover {
-            background: #2980b9;
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: #fff;
         }
-        
-        .btn-download {
-            background: var(--success);
-            color: white;
-            border: 1px solid var(--success);
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--accent);
+            color: var(--accent);
         }
-        
-        .btn-download:hover {
-            background: #27ae60;
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: #fff;
         }
-        
-        section {
-            padding: 80px 0;
-        }
-        
+
+        /* Section titles */
         .section-title {
-            position: relative;
-            margin-bottom: 50px;
             text-align: center;
+            margin-bottom: 60px;
         }
-        
+
         .section-title h2 {
-            font-size: 36px;
+            font-size: 2.5rem;
             font-weight: 700;
             display: inline-block;
-            padding-bottom: 10px;
+            position: relative;
+            padding-bottom: 12px;
         }
-        
+
         .section-title h2::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+            width: 60px;
+            height: 4px;
             background: var(--accent);
+            border-radius: 2px;
         }
-        
-        /* Header & Navigation */
+
+        /* Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            padding: 16px 0;
+            transition: var(--transition);
         }
-        
+
+        header.scrolled {
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+        }
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
-        
+
         .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--accent);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary);
+            background: #fff;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
+            gap: 2rem;
         }
-        
-        .nav-links li {
-            margin-left: 40px;
-        }
-        
+
         .nav-links a {
-            font-size: 16px;
             font-weight: 500;
-            color: var(--dark);
+            color: var(--text);
             position: relative;
+            padding: 4px 0;
         }
-        
+
         .nav-links a::after {
             content: '';
             position: absolute;
+            bottom: -4px;
+            left: 0;
             width: 0;
             height: 2px;
-            bottom: -5px;
-            left: 0;
             background: var(--accent);
-            transition: width 0.3s ease;
+            transition: width 0.3s;
         }
-        
+
         .nav-links a:hover::after {
             width: 100%;
         }
-        
+
         .menu-toggle {
             display: none;
-            font-size: 24px;
-            color: var(--dark);
+            font-size: 1.6rem;
+            color: var(--text);
             cursor: pointer;
         }
-        
-        /* Hero Section */
+
+        /* Hero */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--light) 0%, #dfe6e9 100%);
-            position: relative;
-            overflow: hidden;
+            padding: 120px 0 80px;
+            background: radial-gradient(circle at 10% 30%, rgba(0,168,255,0.06) 0%, transparent 50%);
         }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(52, 152, 219, 0.05)"/></svg>');
-            background-size: cover;
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
-        
-        .hero-content {
-            max-width: 700px;
-            position: relative;
-            z-index: 1;
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0.3em;
         }
-        
-        .hero-content h1 {
-            font-size: 52px;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .hero-content h2 {
-            font-size: 28px;
+
+        .hero-text .dynamic-role {
+            font-size: 2rem;
+            font-weight: 600;
             color: var(--accent);
-            margin-bottom: 20px;
+            min-height: 2.5rem;
+            margin-bottom: 0.6em;
         }
-        
-        .hero-content p {
-            font-size: 18px;
-            margin-bottom: 40px;
-            max-width: 600px;
-            color: var(--gray);
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 480px;
+            margin-bottom: 2.2rem;
         }
-        
+
         .hero-btns {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
         }
-        
-        /* About Section */
-        .about {
-            background: white;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            color: var(--gray);
-        }
-        
-        /* Updated Skills List with Categories */
-        .skills-container {
-            margin-top: 30px;
-        }
-        
-        .skill-category {
-            margin-bottom: 25px;
-        }
-        
-        .skill-category h4 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-size: 18px;
-            border-bottom: 2px solid rgba(52, 152, 219, 0.2);
-            padding-bottom: 5px;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        
-        .skill-item {
-            display: flex;
-            align-items: center;
-            padding: 8px 0;
-        }
-        
-        .skill-item i {
-            color: var(--accent);
-            margin-right: 10px;
-            font-size: 14px;
-        }
-        
-        /* Tools & Technologies Section */
-        .tools-section {
-            background: #f8f9fa;
-            padding: 60px 0;
-        }
-        
-        .tools-container {
+
+        .hero-image {
+            position: relative;
             display: flex;
             justify-content: center;
+        }
+
+        .hero-image .image-wrapper {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+}
+
+.hero-image .accent-circle {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 3px dashed var(--accent);
+    opacity: 0.5;
+    z-index: 1;
+    animation: rotate 25s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+        /* About */
+        .about {
+            padding: 90px 0;
+            background: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .skills-chips {
+            display: flex;
             flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 40px;
+            gap: 12px;
+            margin-top: 2rem;
         }
-        
-        .tool-item {
-            text-align: center;
-            width: 100px;
-            transition: transform 0.3s ease;
+
+        .skill-chip {
+            background: #f1f5f9;
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        
-        .tool-item:hover {
-            transform: translateY(-5px);
+
+        .skill-chip i {
+            color: var(--accent);
         }
-        
-        .tool-icon {
-            width: 70px;
-            height: 70px;
-            background: white;
+
+        .about-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image .about-icon-wrapper {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            font-size: 32px;
+            font-size: 6rem;
             color: var(--accent);
+            box-shadow: var(--shadow);
         }
-        
-        .tool-name {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--secondary);
+
+        /* Tools Section */
+        .tools {
+            padding: 80px 0;
+            background: var(--bg);
         }
-        
-        /* Experience Section */
+
+        .tools-scroll {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tools-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .tools-scroll::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        .tool-card {
+            flex: 0 0 160px;
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            scroll-snap-align: start;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .tool-card i {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .tool-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .tool-card p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Story Section */
+        .story {
+            padding: 90px 0;
+            background: #fff;
+        }
+
+        .story-flow {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .story-step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .story-step:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(0,168,255,0.15);
+            position: absolute;
+            top: 15px;
+            left: 20px;
+        }
+
+        .story-step i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .story-step h4 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .story-step p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .story-connector {
+            display: none;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            opacity: 0.4;
+            align-self: center;
+            margin: 0 -10px;
+        }
+
+        @media (min-width: 900px) {
+            .story-connector {
+                display: block;
+            }
+        }
+
+        /* Experience */
         .experience {
-            background: white;
+            padding: 90px 0;
+            background: var(--bg);
         }
-        
+
         .timeline {
             position: relative;
             max-width: 900px;
             margin: 0 auto;
         }
-        
-        .timeline::after {
+
+        .timeline::before {
             content: '';
             position: absolute;
             width: 2px;
-            background: var(--accent);
+            background: var(--border);
             top: 0;
             bottom: 0;
             left: 50%;
-            margin-left: -1px;
+            transform: translateX(-50%);
         }
-        
+
         .timeline-item {
-            padding: 20px 40px;
             position: relative;
             width: 50%;
-            box-sizing: border-box;
+            padding: 20px 40px;
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.5s ease;
+            transition: opacity 0.6s ease, transform 0.6s ease;
             will-change: transform, opacity;
         }
-        
+
         .timeline-item.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .timeline-item:nth-child(odd) {
             left: 0;
+            text-align: right;
+            padding-right: 60px;
         }
-        
+
         .timeline-item:nth-child(even) {
             left: 50%;
+            padding-left: 60px;
         }
-        
-        .timeline-content {
+
+        .timeline-card {
+            background: #fff;
             padding: 25px;
-            background: white;
-            border-radius: 8px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--accent);
+            text-align: left;
         }
-        
-        .timeline-content::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            top: 30px;
-            background: var(--accent);
-            border-radius: 50%;
-            z-index: 1;
+
+        .timeline-item:nth-child(odd) .timeline-card {
+            border-left: none;
+            border-right: 4px solid var(--accent);
+            text-align: left;
         }
-        
-        .timeline-item:nth-child(even) .timeline-content::after {
-            left: -10px;
-        }
-        
+
         .timeline-date {
             font-weight: 600;
             color: var(--accent);
-            margin-bottom: 5px;
-            font-size: 14px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
         }
-        
+
         .timeline-company {
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-            font-size: 18px;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
         }
-        
+
         .timeline-position {
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
         }
-        
+
         .timeline-desc {
-            font-size: 14px;
-            color: var(--gray);
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text);
+            text-align: left;
+            padding-left: 0;
         }
-        
+
         .timeline-desc li {
-            margin-bottom: 8px;
             position: relative;
-            padding-left: 15px;
-        }
-        
-        .timeline-desc li::before {
-            content: '•';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-        }
-        
-        /* BA Story Section */
-        .ba-story {
-            background: white;
-            padding: 80px 0;
-        }
-        
-        .story-card {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-        
-        .story-step {
-            margin-bottom: 30px;
-        }
-        
-        .story-step h4 {
-            color: var(--accent);
+            padding-left: 20px;
             margin-bottom: 10px;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
+            line-height: 1.6;
+            text-align: left;
         }
-        
-        .story-step h4 i {
-            margin-right: 10px;
-        }
-        
-        .story-step p {
-            color: var(--gray);
-            padding-left: 30px;
-        }
-        
-        /* Projects Section */
-        .projects {
-            background: white;
-            position: relative;
-        }
-        
-        .projects::before {
-            content: '';
+
+        .timeline-desc li::before {
+            content: '▹';
             position: absolute;
-            top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(52, 152, 219, 0.03)"/></svg>');
-            background-size: cover;
-            opacity: 0.5;
+            color: var(--accent);
         }
-        
+
+        /* Projects */
+        .projects {
+            padding: 90px 0;
+            background: #fff;
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
             gap: 30px;
-            position: relative;
-            z-index: 1;
         }
-        
+
         .project-card {
-            background: white;
-            border-radius: 8px;
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            will-change: transform, opacity;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
-        
-        .project-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
+
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
-        
+
         .project-img {
-            height: 200px;
-            background: var(--light);
+            height: 180px;
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent);
-            font-size: 50px;
-            overflow: hidden;
+            font-size: 2.8rem;
             position: relative;
+            overflow: hidden;
         }
-        
-        .project-img::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(52, 152, 219, 0.1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .project-card:hover .project-img::after {
-            opacity: 1;
-        }
-        
+
         .project-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .project-content {
-            padding: 25px;
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
-        
+
         .project-title {
-            font-size: 20px;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .project-detail {
+            font-size: 0.9rem;
+            color: var(--text-light);
             margin-bottom: 10px;
+            line-height: 1.6;
         }
-        
-        .project-problem, .project-summary, .project-outcome {
-            font-size: 14px;
-            margin-bottom: 12px;
-            color: var(--gray);
+
+        .project-detail strong {
+            color: var(--text);
         }
-        
-        .project-problem strong, .project-summary strong, .project-outcome strong {
-            color: var(--secondary);
-        }
-        
+
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0 15px;
+            gap: 8px;
+            margin: 15px 0;
         }
-        
+
         .tech-tag {
-            background: rgba(52, 152, 219, 0.1);
+            background: #e0f2fe;
             color: var(--accent);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
-        
+
         .project-links {
-            display: flex;
-            gap: 15px;
+            margin-top: auto;
+            padding-top: 15px;
         }
-        
+
         /* Resume Section */
         .resume {
-            background: #f8f9fa;
-        }
-        
-        .resume-content {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 80px 0;
+            background: var(--bg);
             text-align: center;
         }
-        
-        .resume-icon {
-            font-size: 80px;
+
+        .resume-card {
+            background: #fff;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .resume-card i {
+            font-size: 3rem;
             color: var(--accent);
             margin-bottom: 20px;
         }
-        
-        .resume-text {
-            margin-bottom: 30px;
-            color: var(--gray);
+
+        .resume-card h3 {
+            margin-bottom: 12px;
         }
-        
-        /* Contact Section */
+
+        .resume-card p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        /* Contact */
         .contact {
-            background: var(--contact-bg);
-            color: white;
+            padding: 90px 0;
+            background: var(--primary);
+            color: #fff;
         }
-        
+
         .contact .section-title h2 {
-            color: var(--contact-header);
+            color: #fff;
         }
-        
+
         .contact .section-title h2::after {
-            background: var(--contact-header);
+            background: var(--accent);
         }
-        
-        .contact-content {
+
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
-        
+
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 24px;
         }
-        
-        .contact-item {
+
+        .contact-card {
             display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            gap: 16px;
+            align-items: flex-start;
+            background: rgba(255,255,255,0.06);
+            padding: 18px;
+            border-radius: var(--radius);
         }
-        
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
+
+        .contact-card i {
+            font-size: 1.4rem;
+            color: var(--accent);
         }
-        
-        .contact-item i {
-            font-size: 24px;
-            color: var(--contact-header);
-            margin-right: 15px;
-            width: 30px;
+
+        .contact-card h3 {
+            color: #fff;
+            margin-bottom: 6px;
+            font-size: 1rem;
         }
-        
-        .contact-item h3 {
-            color: var(--contact-header);
-            font-size: 18px;
-            margin-bottom: 5px;
+
+        .contact-card p, .contact-card a {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
         }
-        
-        .contact-item p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 14px;
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
         }
-        
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
         }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .form-group label {
-            margin-bottom: 5px;
-            color: white;
-            font-weight: 500;
-        }
-        
+
         .form-group input,
         .form-group textarea {
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            color: white;
-            font-family: 'Open Sans', sans-serif;
-            transition: border 0.3s ease;
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
         }
-        
+
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--contact-header);
-            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.15);
         }
-        
-        .contact .btn-primary {
-            background: var(--contact-header);
-            border-color: var(--contact-header);
+
+        .form-group label {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 5px;
+            display: block;
+            font-size: 0.9rem;
         }
-        
-        .contact .btn-primary:hover {
-            background: #2980b9;
-            border-color: #2980b9;
-        }
-        
+
         .form-status {
-            margin-top: 15px;
             padding: 10px;
-            border-radius: 4px;
-            text-align: center;
+            border-radius: 8px;
             display: none;
+            font-size: 0.9rem;
         }
-        
+
         /* Footer */
         footer {
-            background: var(--dark);
-            padding: 30px 0;
+            background: #101d2c;
+            padding: 24px 0;
             text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
         }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .social-links a {
-            font-size: 20px;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            font-size: 14px;
-            color: var(--light-gray);
-        }
-        
-        /* Scroll Indicator */
-        .scroll-indicator {
+
+        /* Scroll to top */
+        .scroll-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             background: var(--accent);
-            color: white;
-            width: 50px;
-            height: 50px;
+            color: #fff;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
+            font-size: 1.3rem;
+            box-shadow: 0 8px 20px rgba(0,168,255,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
             z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
         }
-        
-        .scroll-indicator.visible {
+
+        .scroll-top.visible {
             opacity: 1;
+            visibility: visible;
         }
-        
-        /* Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: var(--accent);
-            z-index: 1001;
-            transition: width 0.1s ease;
-        }
-        
-        /* Accessibility Improvements */
-        :focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-        
-        .skip-to-content {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent);
-            color: white;
-            padding: 8px;
-            z-index: 1001;
-            text-decoration: none;
-        }
-        
-        .skip-to-content:focus {
-            top: 0;
-        }
-        
-        /* Loading Animation */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.3s ease;
-        }
-        
-        .loading.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--light-gray);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Print Styles */
-        @media print {
-            .scroll-indicator,
-            .menu-toggle,
-            .hero-btns,
-            .project-links,
-            .contact-form,
-            .progress-bar {
-                display: none !important;
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
-            
-            body {
-                font-size: 12pt;
-                line-height: 1.5;
+            .hero-text p {
+                max-width: 100%;
             }
-            
-            a {
-                text-decoration: underline;
-                color: #000;
+            .hero-btns {
+                justify-content: center;
             }
-            
-            .project-card:hover {
-                transform: none;
-                box-shadow: none;
+            .hero-image {
+                order: -1;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline::before {
+                left: 28px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                left: 0 !important;
+                text-align: left !important;
+            }
+            .timeline-item:nth-child(odd) .timeline-card {
+                border-left: 4px solid var(--accent);
+                border-right: none;
+            }
+            .timeline-card {
+                text-align: left !important;
+            }
+            .timeline-desc {
+                text-align: left;
+                padding-left: 0;
+            }
+            .timeline-desc li {
+                text-align: left;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
-        
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
+
+        @media (max-width: 600px) {
             .nav-links {
                 position: fixed;
                 top: 70px;
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 70px);
-                background: white;
+                background: rgba(255,255,255,0.98);
                 flex-direction: column;
                 align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: all 0.3s ease;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                justify-content: center;
+                gap: 2rem;
+                transition: left 0.3s;
             }
-            
             .nav-links.active {
                 left: 0;
             }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .hero-content h1 {
-                font-size: 36px;
-            }
-            
-            .hero-content h2 {
-                font-size: 24px;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Improved Mobile Timeline */
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-content::after {
-                left: -10px;
-            }
-            
-            .timeline-item .timeline-date {
-                font-weight: bold;
-                color: var(--accent);
-                position: relative;
-                margin-bottom: 5px;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .resume-content {
-                padding: 20px;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .ba-story .story-card {
-                padding: 20px;
-            }
-            
-            .story-step p {
-                padding-left: 15px;
-            }
-            
-            .tools-container {
-                gap: 20px;
-            }
-            
-            .tool-item {
-                width: 80px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 28px;
-            }
-            
-            .hero-content h2 {
-                font-size: 20px;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-            }
-            
-            .hero-btns .btn {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-            
-            .section-title h2 {
-                font-size: 28px;
-            }
-            
-            .project-content {
-                padding: 20px;
-            }
-            
-            .tools-container {
-                gap: 15px;
+            .menu-toggle {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Skip to content link for accessibility -->
-    <a href="#home" class="skip-to-content">Skip to main content</a>
-    
-    <!-- Loading Animation -->
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-    </div>
-    
-    <!-- Progress Bar -->
-    <div class="progress-bar"></div>
-    
-    <!-- Header & Navigation -->
-    <header>
+    <header id="header">
         <div class="container">
             <nav>
-                <div class="logo">ST</div>
-                <ul class="nav-links">
+                <a href="#" class="logo">ST</a>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#tools">Tools</a></li>
@@ -1054,432 +952,448 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="menu-toggle">
+                <div class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <p>Hello, I'm</p>
-                <h1>Shubham Terekholkar</h1>
-                <h2>Business Analyst</h2>
-                <p>Results-driven Business Analyst with 4+ years of experience in healthcare and travel domain analytics. Skilled in translating complex business requirements into actionable solutions that drive efficiency and profitability.</p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn btn-primary">View Analytical Projects</a>
-                    <a href="https://github.com/Shubham301099/shubham_portfolio/raw/main/ShubhamTere_Analyst.pdf" download="Shubham_Terekholkar_Resume.pdf" class="btn btn-download"><i class="fas fa-download"></i> Download Resume</a>
-                    <a href="#contact" class="btn">Contact Me</a>
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <p style="font-weight: 500; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; color: var(--accent);">Hello, I'm</p>
+                    <h1>Shubham Terekholkar</h1>
+                    <div class="dynamic-role" id="dynamicRole">Business Analyst</div>
+                    <p>I transform complex data into actionable strategies. 4+ years driving growth in healthcare, optical, and travel analytics with Power BI, SQL, and a passion for solving real business problems.</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="https://github.com/Shubham301099/shubham_portfolio/raw/main/ShubhamTere_Analyst.pdf" class="btn btn-outline" download><i class="fas fa-download"></i> Resume</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="https://raw.githubusercontent.com/Shubham301099/shubham_portfolio/main/profile%20pic2.jpeg" alt="Shubham Terekholkar">
+                    </div>
+                    <div class="accent-circle"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
                 <h2>About Me</h2>
             </div>
-            <div class="about-content">
+            <div class="about-grid">
                 <div class="about-text">
-                    <p>I'm a Business Analyst with 4+ years of experience specializing in healthcare and travel domain analytics. My expertise lies in transforming complex data into actionable insights that drive business growth and efficiency.</p>
-                    <p>Throughout my career, I've successfully delivered solutions that improved profitability by 20% and operational efficiency by 25%. I'm passionate about leveraging data visualization tools like Power BI and Tableau to create intuitive dashboards that empower decision-makers.</p>
-                    <p>When I'm not analyzing data, I enjoy learning about new analytical techniques, contributing to open-source projects, and staying updated with the latest trends in business intelligence.</p>
-                    
-                    <div class="skills-container">
-                        <div class="skill-category">
-                            <h4>Business Analysis Skills</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Requirements Gathering</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Stakeholder Management</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Business Process Improvement</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Data Analysis & Modeling</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Domain Knowledge</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Healthcare Analytics</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Travel & Tourism</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Sales & Marketing Analytics</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Financial Reporting</span>
-                                </div>
-                            </div>
-                        </div>
+                    <p>I'm a Business Analyst who thrives at the intersection of data and decision‑making. Over the past 4+ years, I've helped healthcare, optical, and travel companies boost profitability by up to 20% and slash reporting time by 30% through data-driven dashboards and process improvements.</p>
+                    <p>My toolkit includes Power BI, Tableau, SQL, and Excel – but my real strength is asking the right questions, translating complex business requirements into actionable solutions, and presenting insights that leadership actually uses to make decisions.</p>
+                    <p>When I'm not buried in a dataset, you'll find me exploring new BI trends, contributing to open‑source projects, or reading books on business strategy and analytics.</p>
+                    <div class="skills-chips">
+                        <span class="skill-chip"><i class="fas fa-chart-bar"></i> Requirements Gathering</span>
+                        <span class="skill-chip"><i class="fas fa-users"></i> Stakeholder Management</span>
+                        <span class="skill-chip"><i class="fas fa-cogs"></i> Process Improvement</span>
+                        <span class="skill-chip"><i class="fas fa-database"></i> Data Modeling</span>
+                        <span class="skill-chip"><i class="fas fa-hospital"></i> Healthcare Analytics</span>
+                        <span class="skill-chip"><i class="fas fa-glasses"></i> Optical Analytics</span>
+                        <span class="skill-chip"><i class="fas fa-plane"></i> Travel & Tourism</span>
                     </div>
                 </div>
                 <div class="about-image">
-                    <!-- Professional Headshot Placeholder - Replace with your actual photo -->
-                    <div style="width: 100%; height: 300px; background: var(--light); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 100px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);" 
-                         aria-label="Profile picture placeholder">
-                        <!-- Replace the icon below with <img src="your-photo.jpg" alt="Shubham Terekholkar" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"> -->
-                        <i class="fas fa-user-tie" role="img" aria-label="Professional profile icon"></i>
+                    <div class="about-icon-wrapper">
+                        <i class="fas fa-chart-pie"></i>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tools & Technologies Section -->
-    <section id="tools" class="tools-section">
+    <!-- Tools & Technologies -->
+    <section id="tools" class="tools">
         <div class="container">
             <div class="section-title">
                 <h2>Tools & Technologies</h2>
             </div>
-            <div class="tools-container">
-                <div class="tool-item">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <div class="tool-name">Power BI</div>
+            <div class="tools-scroll">
+                <div class="tool-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Power BI</h4>
+                    <p>Interactive dashboards, DAX, Power Query</p>
                 </div>
-                <div class="tool-item">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="tool-name">Tableau</div>
+                <div class="tool-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h4>Tableau</h4>
+                    <p>Visual analytics, data storytelling</p>
                 </div>
-                <div class="tool-item">
-                    <div class="tool-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div class="tool-name">SQL</div>
+                <div class="tool-card">
+                    <i class="fas fa-database"></i>
+                    <h4>SQL</h4>
+                    <p>Querying, data modeling, joins</p>
                 </div>
-                <div class="tool-item">
-                    <div class="tool-icon">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <div class="tool-name">Python</div>
+                <div class="tool-card">
+                    <i class="fas fa-file-excel"></i>
+                    <h4>Excel</h4>
+                    <p>Advanced formulas, pivot tables, VBA</p>
                 </div>
-                <div class="tool-item">
-                    <div class="tool-icon">
-                        <i class="fas fa-file-excel"></i>
-                    </div>
-                    <div class="tool-name">Excel</div>
-                </div>
-                <div class="tool-item">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="tool-name">Data Analysis</div>
+                <div class="tool-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Data Analysis</h4>
+                    <p>Statistical modeling, trend analysis</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Business Analyst Story Section -->
-    <section class="ba-story">
+    <!-- Analytical Approach Story -->
+    <section class="story">
         <div class="container">
             <div class="section-title">
-                <h2>My Analytical Approach</h2>
+                <h2>How I Solve Problems</h2>
             </div>
-            <div class="story-card">
+            <div class="story-flow">
                 <div class="story-step">
-                    <h4><i class="fas fa-search"></i> Situation & Task</h4>
-                    <p>A travel company needed to expand into medical tourism but lacked data on market potential, patient flow patterns, and profitability by treatment type across different countries.</p>
+                    <div class="step-number">01</div>
+                    <i class="fas fa-search"></i>
+                    <h4>Understand & Define</h4>
+                    <p>I dig into the business context, map stakeholders, and define the right metrics. In a recent optical analytics project, I built a comprehensive reporting framework covering 180+ centers to track OPD trends and revenue performance.</p>
                 </div>
+                <div class="story-connector"></div>
                 <div class="story-step">
-                    <h4><i class="fas fa-cogs"></i> Action</h4>
-                    <p>I designed a comprehensive data collection framework, analyzed healthcare infrastructure, treatment costs, and patient demographics across 5+ target countries. Built interactive Power BI dashboards to visualize patient flow, treatment popularity, and revenue projections.</p>
+                    <div class="step-number">02</div>
+                    <i class="fas fa-cogs"></i>
+                    <h4>Analyze & Build</h4>
+                    <p>Using Power BI and SQL, I turn raw data into clear, actionable dashboards. For that same project, I developed store-wise and product-wise sales analysis with structured daily performance reporting.</p>
                 </div>
+                <div class="story-connector"></div>
                 <div class="story-step">
-                    <h4><i class="fas fa-chart-line"></i> Result</h4>
-                    <p>Identified 3 high-potential markets with projected 40% ROI. The dashboard reduced market research time by 60% and provided leadership with clear data-driven expansion strategy, leading to successful entry into 2 new markets within 6 months.</p>
+                    <div class="step-number">03</div>
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Deliver & Impact</h4>
+                    <p>I present findings that drive real decisions. The result: improved decision visibility for leadership, data-backed seasonal offer discussions, and optimized procurement through consumption analysis.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience -->
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-title">
                 <h2>Work Experience</h2>
             </div>
             <div class="timeline">
+
+                <!-- Job 1: ASG Eye Hospital -->
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Mar 2024 - Jan 2026</div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">Jan 2026 – Present</div>
+                        <div class="timeline-company">ASG Eye Hospital Pvt. Ltd</div>
+                        <div class="timeline-position">Business Analyst – Optical</div>
+                        <ul class="timeline-desc">
+                            <li>Developed and managing Power BI and Excel dashboards to analyze OPD trends, optical revenue, conversion ratios, and staff performance incentives across 180+ centers (including ASG, Vasan Eye Care, Sharp Sight), improving decision visibility for senior leadership.</li>
+                            <li>Supporting optical target and budget planning through store-wise and product-wise sales analysis with structured daily performance reporting, enabling data-driven monthly and quarterly target setting.</li>
+                            <li>Tracking MTD and YoY business trends to highlight growth opportunities and performance gaps, presenting key insights during weekly management reviews.</li>
+                            <li>Ensuring 100% data accuracy through rigorous reconciliation with finance reports and coordinating with tech teams for timely report corrections and system enhancements.</li>
+                            <li>Creating weekly review files for leadership and supporting the warehouse procurement team through consumption analysis, reducing stock discrepancies and optimizing inventory levels.</li>
+                            <li>Assisting leadership in seasonal offer discussions with detailed sales and customer trend data, and implementing promotional offers across pan-India stores with measurable impact tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2: Shree Plan Your Journey -->
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="timeline-date">Mar 2024 – Jan 2026</div>
                         <div class="timeline-company">Shree Plan Your Journey Pvt. Ltd</div>
                         <div class="timeline-position">Business Analyst</div>
                         <ul class="timeline-desc">
-                            <li>Designed and automated 10+ interactive dashboards using Power BI and Excel, improving departmental decision-making and reducing manual reporting time by 30%</li>
-                            <li>Led the "Plan Medical Tourism" project, analyzing data from 5+ international markets, identifying high-potential segments, and enabling strategic expansion planning</li>
-                            <li>Analyzed company-wide sales and purchase data across multiple product categories, delivering insights that contributed to a 20% growth in profitability within six months</li>
-                            <li>Reconciled monthly airline sales reports with billing data, identifying and correcting discrepancies, ensuring 100% financial accuracy</li>
-                            <li>Created and presented monthly and yearly Profit & Loss (P&L) reports, supporting senior leadership in budgeting, forecasting, and strategic financial decisions</li>
+                            <li>Designed and automated 10+ interactive dashboards using Power BI and Excel, improving departmental decision-making and reducing manual reporting time by 30% across sales, operations, and finance teams.</li>
+                            <li>Led the "Plan Medical Tourism" project, analyzing data from 5+ international markets including treatment costs, patient demographics, and healthcare infrastructure, identifying high-potential segments that enabled strategic expansion planning.</li>
+                            <li>Analyzed company-wide sales and purchase data across multiple product categories, uncovering pricing inefficiencies and underperforming segments, delivering insights that contributed to a 20% growth in profitability within six months.</li>
+                            <li>Reconciled monthly airline sales reports with billing data, identifying and correcting discrepancies through systematic data validation, ensuring 100% financial accuracy for monthly closing.</li>
+                            <li>Created and presented monthly and yearly Profit & Loss (P&L) reports, supporting senior leadership in budgeting, forecasting, and strategic financial decisions with clear data narratives.</li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- Job 3: Thyrocare -->
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">May 2021 - Mar 2024</div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">May 2021 – Mar 2024</div>
                         <div class="timeline-company">Thyrocare Technologies Pvt. Ltd</div>
                         <div class="timeline-position">Analyst / Growth Executive</div>
                         <ul class="timeline-desc">
-                            <li>Managed over 200 client queries across business verticals, ensuring 100% client satisfaction through data-driven solutions and market research insights</li>
-                            <li>Resolved 30+ client business problems, enhancing operational efficiency by 25%</li>
-                            <li>Developed Power BI dashboards and performance trackers that enabled a 15% boost in sales and facilitated onboarding of 100+ pan-India clients, resulting in a 30% increase in overall revenue</li>
-                            <li>Conducted market research to provide data-driven solutions to client problems</li>
+                            <li>Managed over 200 client queries across multiple business verticals, ensuring 100% client satisfaction through data-driven solutions, market research insights, and proactive communication.</li>
+                            <li>Resolved 30+ complex client business problems by analyzing operational data, identifying root causes, and implementing process improvements that enhanced operational efficiency by 25%.</li>
+                            <li>Developed Power BI dashboards and performance trackers that provided real-time visibility into sales metrics and client performance, enabling a 15% boost in sales and facilitating the onboarding of 100+ pan-India clients.</li>
+                            <li>Conducted comprehensive market research to provide data-driven solutions to client problems, resulting in a 30% increase in overall revenue through targeted business development initiatives.</li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- Job 4: Central Medical Store -->
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Jan 2018 - Feb 2021</div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">Jan 2018 – Feb 2021</div>
                         <div class="timeline-company">Central Medical Store</div>
                         <div class="timeline-position">Data Entry Operator</div>
                         <ul class="timeline-desc">
-                            <li>Maintained accurate drug inventory records, ensuring 10% monthly data improvement</li>
-                            <li>Created Schedule H1 compliance reports using Marg ERP</li>
-                            <li>Monitored and tracked NRX drug sales with high precision</li>
-                            <li>Ensured data accuracy and compliance with pharmaceutical regulations</li>
+                            <li>Maintained accurate drug inventory records with meticulous attention to detail, consistently achieving 10% monthly data quality improvement through systematic validation processes.</li>
+                            <li>Created Schedule H1 compliance reports using Marg ERP, ensuring full regulatory compliance and timely submission to relevant authorities.</li>
+                            <li>Monitored and tracked NRX drug sales with high precision, maintaining error-free records and providing regular status updates to the pharmacy head.</li>
+                            <li>Ensured data accuracy and strict compliance with pharmaceutical regulations, contributing to smooth audit processes and zero compliance violations.</li>
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-title">
                 <h2>Featured Projects</h2>
             </div>
             <div class="projects-grid">
+
+                <!-- Project 1: Customer Churn -->
                 <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Customer Churn Analysis</h3>
-                        <p class="project-problem"><strong>Problem:</strong> Telecom company facing high customer attrition with no systematic way to predict which customers were likely to leave.</p>
-                        <p class="project-summary"><strong>Solution:</strong> Built a predictive model using Power BI and SQL to analyze customer behavior patterns, usage trends, and service complaints to identify at-risk customers.</p>
-                        <p class="project-outcome"><strong>Outcome:</strong> Model achieved 85% prediction accuracy, enabling targeted retention campaigns that reduced churn by 15% in pilot regions.</p>
+                        <div class="project-detail">
+                            <strong>Problem:</strong> A telecom company was facing high customer attrition with no systematic way to predict which customers were likely to leave, resulting in reactive retention efforts and increasing churn costs.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Solution:</strong> Built a predictive model using Power BI and SQL to analyze customer behavior patterns, usage trends, service complaints, and billing history to identify at-risk customers before they churned.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Outcome:</strong> The model achieved 85% prediction accuracy, enabling targeted retention campaigns that successfully reduced churn by 15% in pilot regions within the first quarter of deployment.
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">Power BI</span>
                             <span class="tech-tag">SQL</span>
                             <span class="tech-tag">Predictive Modeling</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Customer-Churn-Analysis-.git" class="btn">View Code</a>
+                            <a href="https://github.com/Shubham301099/Customer-Churn-Analysis-.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 2: Walmart Sales -->
                 <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Walmart Sales Dashboard</h3>
-                        <p class="project-problem"><strong>Problem:</strong> Sales leadership lacked real-time visibility into category performance, seasonal trends, and regional variations.</p>
-                        <p class="project-summary"><strong>Solution:</strong> Created comprehensive Power BI dashboards integrating sales data across 50+ product categories with drill-down capabilities, trend analysis, and automated alerts.</p>
-                        <p class="project-outcome"><strong>Outcome:</strong> Reduced monthly reporting time by 6 hours, identified underperforming categories leading to 5% QoQ sales increase through targeted interventions.</p>
+                        <div class="project-detail">
+                            <strong>Problem:</strong> Sales leadership lacked real-time visibility into category performance, seasonal trends, and regional variations across 50+ product categories, making it difficult to identify underperforming areas quickly.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Solution:</strong> Created comprehensive Power BI dashboards integrating sales data with drill-down capabilities, trend analysis, and automated alerts for significant performance deviations across categories and regions.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Outcome:</strong> Reduced monthly reporting time by 6 hours, identified 3 underperforming product categories that were previously overlooked, leading to a 5% quarter-over-quarter sales increase through targeted interventions and promotions.
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">Excel</span>
                             <span class="tech-tag">Sales Analytics</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Walmart-Sales-Analysis.git" class="btn">View Code</a>
+                            <a href="https://github.com/Shubham301099/Walmart-Sales-Analysis.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 3: Spotify Trends -->
                 <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-music"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Spotify Trend Analysis</h3>
-                        <p class="project-problem"><strong>Problem:</strong> Music streaming platform needed insights into evolving listener preferences, genre popularity, and regional music trends.</p>
-                        <p class="project-summary"><strong>Solution:</strong> Developed Tableau dashboards analyzing millions of streaming records to visualize genre trends, artist popularity metrics, and regional listening patterns.</p>
-                        <p class="project-outcome"><strong>Outcome:</strong> Identified 3 emerging music genres with 40% month-over-month growth, informing content acquisition strategy and playlist curation.</p>
+                        <div class="project-detail">
+                            <strong>Problem:</strong> A music streaming platform needed deep insights into evolving listener preferences, genre popularity shifts, and regional music consumption trends to inform content acquisition strategy.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Solution:</strong> Developed Tableau dashboards analyzing millions of streaming records to visualize genre trends over time, artist popularity metrics, seasonal listening patterns, and regional music preferences across different demographics.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Outcome:</strong> Identified 3 emerging music genres with 40% month-over-month growth that the platform had not prioritized, directly informing content acquisition strategy and playlist curation for the upcoming quarter.
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">Tableau</span>
                             <span class="tech-tag">Data Analysis</span>
                             <span class="tech-tag">User Behavior</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Shubham301099/spotify-trend-analysis.git" class="btn">View Code</a>
+                            <a href="https://github.com/Shubham301099/spotify-trend-analysis.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 4: Social Media -->
                 <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Social Media Users Analysis</h3>
-                        <p class="project-problem"><strong>Problem:</strong> Social media platform struggling to understand user engagement patterns and content preferences for algorithm optimization.</p>
-                        <p class="project-summary"><strong>Solution:</strong> Analyzed user interaction data using SQL queries to track engagement metrics, content preferences, and sentiment patterns across different user segments.</p>
-                        <p class="project-outcome"><strong>Outcome:</strong> Identified 3 distinct user personas with specific content preferences, leading to 40% improvement in content recommendation relevance and user engagement.</p>
+                        <div class="project-detail">
+                            <strong>Problem:</strong> A social media platform was struggling to understand user engagement patterns and content preferences, resulting in poor content recommendation relevance and declining user retention rates.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Solution:</strong> Analyzed user interaction data using advanced SQL queries to track engagement metrics, content preferences, session durations, and sentiment patterns across different user segments and demographics.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Outcome:</strong> Identified 3 distinct user personas with specific content preferences and behavior patterns, leading to a 40% improvement in content recommendation relevance and a measurable increase in user engagement metrics.
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">SQL</span>
                             <span class="tech-tag">Sentiment Analysis</span>
                             <span class="tech-tag">User Personas</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Social-media-users-Analysis" class="btn">View Code</a>
+                            <a href="https://github.com/Shubham301099/Social-media-users-Analysis" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 5: Cyclistic -->
                 <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-bicycle"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Cyclistic Bike Share Analysis</h3>
-                        <p class="project-problem"><strong>Problem:</strong> Bike share company experiencing uneven bike distribution and suboptimal station placement affecting user satisfaction.</p>
-                        <p class="project-summary"><strong>Solution:</strong> Analyzed ride patterns, popular routes, and user demographics using Power BI with cohort analysis to understand usage patterns and retention drivers.</p>
-                        <p class="project-outcome"><strong>Outcome:</strong> Optimized bike distribution based on peak usage patterns, reducing wait times by 20% and increasing member retention by 15%.</p>
+                        <div class="project-detail">
+                            <strong>Problem:</strong> A bike share company was experiencing uneven bike distribution across stations, leading to frequent stockouts at popular locations and oversupply at low-demand stations, affecting user satisfaction and operational costs.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Solution:</strong> Analyzed ride patterns, popular routes, peak usage hours, and user demographics using Power BI with cohort analysis to understand usage patterns, membership retention drivers, and optimal station placement.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Outcome:</strong> Optimized bike distribution based on peak usage patterns and demand forecasting, reducing average wait times by 20% and increasing annual membership retention by 15% through improved service reliability.
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">Power BI</span>
                             <span class="tech-tag">Cohort Analysis</span>
                             <span class="tech-tag">User Demographics</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Cyclist-Bike-Share-Analysis-.git" class="btn">View Code</a>
+                            <a href="https://github.com/Shubham301099/Cyclist-Bike-Share-Analysis-.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
                         </div>
                     </div>
                 </div>
-                <!-- New Optical Analytics Dashboard Project -->
+
+                <!-- Project 6: Optical -->
                 <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-glasses"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Optical Analytics Dashboard</h3>
-                        <p class="project-problem"><strong>Problem:</strong> Optical store chain struggling with inventory management, sales tracking, and understanding customer purchase patterns.</p>
-                        <p class="project-summary"><strong>Solution:</strong> Developed comprehensive Power BI dashboard tracking sales performance, inventory levels, customer demographics, and product preferences across multiple store locations.</p>
-                        <p class="project-outcome"><strong>Outcome:</strong> Real-time inventory tracking reduced stockouts by 30%, identified top-selling products for optimized procurement, and increased sales efficiency by 15%.</p>
+                        <div class="project-detail">
+                            <strong>Problem:</strong> An optical store chain with multiple locations was struggling with inventory management, sales tracking inconsistencies, and lack of understanding of customer purchase patterns across different store formats.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Solution:</strong> Developed a comprehensive Power BI dashboard tracking sales performance, inventory levels, customer demographics, product preferences, and staff productivity metrics across multiple store locations with real-time data refresh.
+                        </div>
+                        <div class="project-detail">
+                            <strong>Outcome:</strong> Real-time inventory tracking reduced stockouts by 30%, identified top-selling products and underperforming SKUs for optimized procurement, and increased overall sales efficiency by 15% through data-driven merchandising decisions.
+                        </div>
                         <div class="project-tech">
                             <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Data Analytics</span>
-                            <span class="tech-tag">Inventory Management</span>
+                            <span class="tech-tag">Inventory Analytics</span>
                             <span class="tech-tag">Sales Analytics</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Optical_Analytics_Dashboard.git" class="btn">View Code</a>
+                            <a href="https://github.com/Shubham301099/Optical_Analytics_Dashboard.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Resume Section -->
+    <!-- Resume Download -->
     <section id="resume" class="resume">
         <div class="container">
-            <div class="section-title">
-                <h2>Download Resume</h2>
-            </div>
-            <div class="resume-content">
-                <div class="resume-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <h3>Get My Complete Resume</h3>
-                <p class="resume-text">Download my detailed resume to learn more about my experience, skills, and achievements.</p>
-                <a href="https://github.com/Shubham301099/shubham_portfolio/raw/main/ShubhamTere_Analyst.pdf" download="Shubham_Terekholkar_Resume.pdf" class="btn btn-download"><i class="fas fa-download"></i> Download Resume PDF</a>
+            <div class="resume-card">
+                <i class="fas fa-file-pdf"></i>
+                <h3>Download My Resume</h3>
+                <p>Get the full PDF with detailed experience, projects, and achievements.</p>
+                <a href="https://github.com/Shubham301099/shubham_portfolio/raw/main/ShubhamTere_Analyst.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download PDF</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Get In Touch</h2>
+                <h2>Let's Connect</h2>
             </div>
-            <div class="contact-content">
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <div class="contact-card">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h3>Email</h3>
-                            <p>shubham37.st@gmail.com</p>
+                            <a href="mailto:shubham37.st@gmail.com">shubham37.st@gmail.com</a>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-card">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h3>Phone</h3>
                             <p>+91 7709991562</p>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-card">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h3>Location</h3>
                             <p>Mumbai, India</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-file-pdf"></i>
-                        <div>
-                            <h3>Resume</h3>
-                            <a href="https://github.com/Shubham301099/shubham_portfolio/raw/main/ShubhamTere_Analyst.pdf" download="Shubham_Terekholkar_Resume.pdf" class="btn btn-download" style="padding: 8px 16px; font-size: 12px;">Download PDF</a>
-                        </div>
-                    </div>
                     <div class="social-links">
-                        <a href="https://linkedin.com/in/shubham-terekholkar-5557051b3"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Shubham301099"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/shubham-terekholkar-5557051b3" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Shubham301099" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
-                <!-- Updated Contact Form -->
-                <form id="myContactForm" class="contact-form">
+                <form id="contactForm" class="contact-form">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address *</label>
+                        <label for="email">Email *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="company">Company (Optional)</label>
+                        <label for="company">Company</label>
                         <input type="text" id="company" name="company">
                     </div>
                     <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
                         <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="4" required></textarea>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary" id="form-submit-btn">Send Message</button>
-                    
-                    <div id="form-status" class="form-status"></div>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
+                    <div id="formStatus" class="form-status"></div>
                 </form>
             </div>
         </div>
@@ -1488,195 +1402,117 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/shubham-terekholkar-5557051b3"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Shubham301099"><i class="fab fa-github"></i></a>
-                <a href="mailto:shubham37.st@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="copyright">© 2025 Shubham Terekholkar. All Rights Reserved.</p>
+            <p>© <span id="currentYear"></span> Shubham Terekholkar. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-        <i class="fas fa-chevron-down"></i>
+    <!-- Scroll to top -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
     </div>
 
     <script>
-        // Wait for page to load
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
-            }, 500);
-            
-            console.log('Portfolio loaded successfully');
-            
-            // Track section views
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        console.log(`Viewed section: ${entry.target.id}`);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            // Observe all sections
-            document.querySelectorAll('section').forEach(section => {
-                sectionObserver.observe(section);
-            });
-        });
-        
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'white';
-                header.style.backdropFilter = 'none';
-            }
-        });
-        
-        // Updated Form Submission with Formspree
-        const contactForm = document.getElementById('myContactForm');
-        const formStatus = document.getElementById('form-status');
-        const submitBtn = document.getElementById('form-submit-btn');
-        
-        if(contactForm) {
-            // Replace with your Formspree endpoint after signup
-            contactForm.action = 'https://formspree.io/f/YOUR_FORMSPREE_CODE_HERE';
-            
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                // Disable button and show "Sending..." state
-                const originalBtnText = submitBtn.textContent;
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
-                
-                // Prepare form data
-                const formData = new FormData(contactForm);
-                
-                try {
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-                    
-                    if (response.ok) {
-                        // Success message
-                        formStatus.textContent = "✅ Thanks for your message! I'll get back to you soon.";
-                        formStatus.style.color = '#2ecc71';
-                        formStatus.style.backgroundColor = 'rgba(46, 204, 113, 0.1)';
-                        contactForm.reset();
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    // Error message with fallback
-                    formStatus.textContent = "❌ Oops! There was a problem. Please email me directly at shubham37.st@gmail.com";
-                    formStatus.style.color = '#e74c3c';
-                    formStatus.style.backgroundColor = 'rgba(231, 76, 60, 0.1)';
-                }
-                
-                // Show status message and re-enable button
-                formStatus.style.display = 'block';
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
-                
-                // Hide status message after 8 seconds
-                setTimeout(() => {
-                    formStatus.style.display = 'none';
-                }, 8000);
-            });
-        }
+        // Dynamic year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Scroll animation for timeline and project items
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animate on scroll for timeline items
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
-        
-        // Observe timeline items
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            observer.observe(item);
-        });
-        
-        // Observe project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            observer.observe(card);
-        });
-        
-        // Progress bar
-        const progressBar = document.querySelector('.progress-bar');
-        
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + "%";
-        });
-        
-        // Enhanced scroll indicator
-        const scrollIndicator = document.querySelector('.scroll-indicator');
-        
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            
-            // Show indicator after 300px scroll
-            if (scrollPosition > 300) {
-                scrollIndicator.classList.add('visible');
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+
+        // Dynamic role typing effect
+        const roles = ["Business Analyst", "Data Storyteller", "Healthcare Analytics", "Optical Analytics"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const roleElement = document.getElementById('dynamicRole');
+
+        function typeEffect() {
+            const current = roles[roleIndex];
+            if (isDeleting) {
+                roleElement.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
             } else {
-                scrollIndicator.classList.remove('visible');
+                roleElement.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
             }
-            
-            // Update icon based on scroll position
-            const scrollIcon = scrollIndicator.querySelector('i');
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.body.offsetHeight;
-            
-            if (windowHeight + scrollPosition >= documentHeight - 100) {
-                scrollIcon.className = 'fas fa-chevron-up';
-                scrollIndicator.title = 'Scroll to top';
+
+            if (!isDeleting && charIndex === current.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeEffect, 300);
             } else {
-                scrollIcon.className = 'fas fa-chevron-down';
-                scrollIndicator.title = 'Scroll down';
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
             }
-        });
-        
-        scrollIndicator.addEventListener('click', () => {
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        }
+        typeEffect();
+
+        // Contact form (with email fallback)
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        const submitBtn = document.getElementById('submitBtn');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formAction = 'https://formspree.io/f/YOUR_FORMSPREE_CODE';
+
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch(formAction, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    formStatus.textContent = "✅ Message sent! I'll reply soon.";
+                    formStatus.style.background = 'rgba(46, 204, 113, 0.2)';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (error) {
+                formStatus.innerHTML = "❌ Error. Email me directly: <a href='mailto:shubham37.st@gmail.com' style='color:#fff;text-decoration:underline;'>shubham37.st@gmail.com</a>";
+                formStatus.style.background = 'rgba(231, 76, 60, 0.2)';
             }
+            formStatus.style.display = 'block';
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+            setTimeout(() => { formStatus.style.display = 'none'; }, 7000);
         });
     </script>
 </body>
