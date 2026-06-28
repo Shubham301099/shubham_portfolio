@@ -31,6 +31,106 @@
             --shadow-hover: 0 20px 35px rgba(0,0,0,0.08);
             --radius: 16px;
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --contact-bg: #1a2b3c;
+            --contact-text: #ffffff;
+            --contact-card-bg: rgba(255,255,255,0.06);
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            --primary: #e2e8f0;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #e2e8f0;
+            --text-light: #94a3b8;
+            --border: #334155;
+            --shadow: 0 4px 20px rgba(0,0,0,0.2);
+            --shadow-hover: 0 20px 35px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .about,
+        body.dark-mode .story,
+        body.dark-mode .projects {
+            background: var(--bg);
+        }
+
+        body.dark-mode .tool-card,
+        body.dark-mode .project-card,
+        body.dark-mode .timeline-card,
+        body.dark-mode .resume-card,
+        body.dark-mode .story-step {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        body.dark-mode header.scrolled {
+            background: rgba(15,23,42,0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        body.dark-mode .logo {
+            background: var(--card-bg);
+            color: var(--accent);
+        }
+
+        body.dark-mode .nav-links a {
+            color: var(--text);
+        }
+
+        body.dark-mode .skill-chip {
+            background: rgba(56,189,248,0.1);
+            color: var(--text);
+        }
+
+        body.dark-mode .tech-tag {
+            background: rgba(56,189,248,0.15);
+        }
+
+        body.dark-mode .project-img {
+            background: linear-gradient(135deg, rgba(56,189,248,0.1), rgba(14,165,233,0.05));
+        }
+
+        body.dark-mode .skill-bar-track {
+            background: #334155;
+        }
+
+        /* Contact section stays dark in both modes */
+        body.dark-mode .contact {
+            background: #1a2b3c !important;
+        }
+
+        body.dark-mode .contact .section-title h2,
+        body.dark-mode .contact-card h3 {
+            color: #fff !important;
+        }
+
+        body.dark-mode .contact-card p,
+        body.dark-mode .contact-card a {
+            color: rgba(255,255,255,0.8) !important;
+        }
+
+        body.dark-mode .contact-card {
+            background: rgba(255,255,255,0.06) !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+        }
+
+        body.dark-mode .form-group input,
+        body.dark-mode .form-group textarea {
+            background: rgba(255,255,255,0.08) !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+            color: #fff !important;
+        }
+
+        body.dark-mode .form-group input:focus,
+        body.dark-mode .form-group textarea:focus {
+            border-color: #38bdf8 !important;
+            background: rgba(255,255,255,0.15) !important;
+        }
+
+        body.dark-mode .form-group label {
+            color: rgba(255,255,255,0.9) !important;
         }
 
         * {
@@ -49,12 +149,14 @@
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
             color: var(--primary);
             line-height: 1.3;
+            transition: color 0.5s ease;
         }
 
         a {
@@ -98,6 +200,8 @@
             background: var(--accent-hover);
             border-color: var(--accent-hover);
             color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,168,255,0.3);
         }
 
         .btn-outline {
@@ -109,6 +213,8 @@
         .btn-outline:hover {
             background: var(--accent);
             color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,168,255,0.3);
         }
 
         /* Section titles */
@@ -137,6 +243,24 @@
             border-radius: 2px;
         }
 
+        /* Dark Mode Toggle */
+        .dark-toggle {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--text);
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition);
+            margin-left: 16px;
+        }
+
+        .dark-toggle:hover {
+            background: rgba(0,168,255,0.1);
+            color: var(--accent);
+        }
+
         /* Header */
         header {
             position: fixed;
@@ -154,10 +278,21 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.04);
         }
 
+        body.dark-mode header.scrolled {
+            background: rgba(15,23,42,0.85);
+            backdrop-filter: blur(12px);
+        }
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .logo {
@@ -173,6 +308,7 @@
             justify-content: center;
             border-radius: 12px;
             box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
         .nav-links {
@@ -210,13 +346,51 @@
             cursor: pointer;
         }
 
+        /* Availability Indicator */
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #2ecc71;
+            padding: 4px 12px;
+            background: rgba(46,204,113,0.1);
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
         /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 120px 0 80px;
-            background: radial-gradient(circle at 10% 30%, rgba(0,168,255,0.06) 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #particleCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .hero-grid {
@@ -224,6 +398,8 @@
             grid-template-columns: 1.2fr 1fr;
             gap: 60px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-text h1 {
@@ -231,6 +407,10 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 0.3em;
+            background: linear-gradient(135deg, #00a8ff 0%, #0ea5e9 30%, #38bdf8 60%, #7dd3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-text .dynamic-role {
@@ -258,54 +438,51 @@
             position: relative;
             display: flex;
             justify-content: center;
+            z-index: 1;
         }
 
         .hero-image .image-wrapper {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 30px 50px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    z-index: 2;
-}
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
 
-.hero-image .image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 10%;
-}
+        .hero-image .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 10%;
+        }
 
-.hero-image .accent-circle {
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    border: 3px dashed var(--accent);
-    opacity: 0.5;
-    z-index: 1;
-    animation: rotate 25s linear infinite;
-}
+        .hero-image .accent-circle {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 3px dashed var(--accent);
+            opacity: 0.5;
+            z-index: 1;
+            animation: rotate 25s linear infinite;
+        }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
         /* About */
         .about {
             padding: 90px 0;
             background: #fff;
+            transition: background 0.5s ease;
         }
 
         .about-grid {
@@ -338,6 +515,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: var(--transition);
         }
 
         .skill-chip i {
@@ -367,6 +545,7 @@
         .tools {
             padding: 80px 0;
             background: var(--bg);
+            transition: background 0.5s ease;
         }
 
         .tools-scroll {
@@ -380,18 +559,9 @@
             flex-wrap: wrap;
         }
 
-        .tools-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .tools-scroll::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 4px;
-        }
-
         .tool-card {
             flex: 0 0 160px;
-            background: #fff;
+            background: var(--card-bg);
             border-radius: var(--radius);
             padding: 30px 20px;
             text-align: center;
@@ -426,6 +596,7 @@
         .story {
             padding: 90px 0;
             background: #fff;
+            transition: background 0.5s ease;
         }
 
         .story-flow {
@@ -433,14 +604,13 @@
             gap: 30px;
             justify-content: center;
             flex-wrap: wrap;
-            position: relative;
         }
 
         .story-step {
             flex: 1;
             min-width: 250px;
             max-width: 350px;
-            background: var(--bg);
+            background: var(--card-bg);
             border-radius: var(--radius);
             padding: 30px;
             box-shadow: var(--shadow);
@@ -499,6 +669,7 @@
         .experience {
             padding: 90px 0;
             background: var(--bg);
+            transition: background 0.5s ease;
         }
 
         .timeline {
@@ -525,7 +696,6 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
-            will-change: transform, opacity;
         }
 
         .timeline-item.visible {
@@ -545,13 +715,19 @@
         }
 
         .timeline-card {
-            background: #fff;
+            background: var(--card-bg);
             padding: 25px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             position: relative;
             border-left: 4px solid var(--accent);
             text-align: left;
+            transition: var(--transition);
+        }
+
+        .timeline-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
         }
 
         .timeline-item:nth-child(odd) .timeline-card {
@@ -607,6 +783,7 @@
         .projects {
             padding: 90px 0;
             background: #fff;
+            transition: background 0.5s ease;
         }
 
         .projects-grid {
@@ -616,7 +793,7 @@
         }
 
         .project-card {
-            background: #fff;
+            background: var(--card-bg);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             overflow: hidden;
@@ -638,14 +815,6 @@
             justify-content: center;
             color: var(--accent);
             font-size: 2.8rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .project-content {
@@ -679,7 +848,7 @@
         }
 
         .tech-tag {
-            background: #e0f2fe;
+            background: rgba(0,168,255,0.1);
             color: var(--accent);
             padding: 4px 12px;
             border-radius: 20px;
@@ -697,10 +866,11 @@
             padding: 80px 0;
             background: var(--bg);
             text-align: center;
+            transition: background 0.5s ease;
         }
 
         .resume-card {
-            background: #fff;
+            background: var(--card-bg);
             max-width: 500px;
             margin: 0 auto;
             padding: 40px;
@@ -723,15 +893,16 @@
             margin-bottom: 24px;
         }
 
-        /* Contact */
+        /* Contact - Always Dark */
         .contact {
             padding: 90px 0;
-            background: var(--primary);
-            color: #fff;
+            background: #1a2b3c !important;
+            color: #fff !important;
+            transition: background 0.5s ease;
         }
 
         .contact .section-title h2 {
-            color: #fff;
+            color: #fff !important;
         }
 
         .contact .section-title h2::after {
@@ -757,6 +928,7 @@
             background: rgba(255,255,255,0.06);
             padding: 18px;
             border-radius: var(--radius);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .contact-card i {
@@ -765,13 +937,13 @@
         }
 
         .contact-card h3 {
-            color: #fff;
+            color: #fff !important;
             margin-bottom: 6px;
             font-size: 1rem;
         }
 
         .contact-card p, .contact-card a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.8) !important;
             font-size: 0.95rem;
         }
 
@@ -839,6 +1011,50 @@
             font-size: 0.9rem;
         }
 
+        /* Sticky Download */
+        .sticky-download {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            background: var(--accent);
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 25px rgba(0,168,255,0.4);
+            z-index: 998;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .sticky-download:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(0,168,255,0.6);
+        }
+
+        .sticky-download .tooltip {
+            position: absolute;
+            right: 60px;
+            background: #1a2b3c;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .sticky-download:hover .tooltip {
+            opacity: 1;
+        }
+
         /* Scroll to top */
         .scroll-top {
             position: fixed;
@@ -864,6 +1080,63 @@
         .scroll-top.visible {
             opacity: 1;
             visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1);
+        }
+
+        /* Floating Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 997;
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(0,168,255,0.5);
+            transform: scale(1.3);
+        }
+
+        .nav-dot:hover {
+            background: var(--accent);
+            transform: scale(1.3);
+        }
+
+        .nav-dot .dot-tooltip {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #1a2b3c;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-dot:hover .dot-tooltip {
+            opacity: 1;
         }
 
         /* Responsive */
@@ -914,6 +1187,28 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            .nav-dots {
+                right: 8px;
+                gap: 12px;
+            }
+            .nav-dot {
+                width: 8px;
+                height: 8px;
+            }
+            .sticky-download {
+                bottom: 80px;
+                right: 16px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .scroll-top {
+                bottom: 20px;
+                right: 16px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 600px) {
@@ -936,10 +1231,26 @@
             .menu-toggle {
                 display: block;
             }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .nav-dots {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Floating Navigation Dots -->
+    <div class="nav-dots" id="navDots">
+        <a href="#home" class="nav-dot active" data-section="home"><span class="dot-tooltip">Home</span></a>
+        <a href="#about" class="nav-dot" data-section="about"><span class="dot-tooltip">About</span></a>
+        <a href="#tools" class="nav-dot" data-section="tools"><span class="dot-tooltip">Tools</span></a>
+        <a href="#experience" class="nav-dot" data-section="experience"><span class="dot-tooltip">Experience</span></a>
+        <a href="#projects" class="nav-dot" data-section="projects"><span class="dot-tooltip">Projects</span></a>
+        <a href="#contact" class="nav-dot" data-section="contact"><span class="dot-tooltip">Contact</span></a>
+    </div>
+
     <header id="header">
         <div class="container">
             <nav>
@@ -952,8 +1263,17 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
+                <div class="nav-right">
+                    <div class="availability">
+                        <span class="pulse-dot"></span>
+                        Open to Work
+                    </div>
+                    <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -961,6 +1281,7 @@
 
     <!-- Hero -->
     <section id="home" class="hero">
+        <canvas id="particleCanvas"></canvas>
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-text">
@@ -986,9 +1307,7 @@
     <!-- About -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
+            <div class="section-title"><h2>About Me</h2></div>
             <div class="about-grid">
                 <div class="about-text">
                     <p>I'm a Business Analyst who thrives at the intersection of data and decision‑making. Over the past 4+ years, I've helped healthcare, optical, and travel companies boost profitability by up to 20% and slash reporting time by 30% through data-driven dashboards and process improvements.</p>
@@ -1005,9 +1324,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="about-icon-wrapper">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
+                    <div class="about-icon-wrapper"><i class="fas fa-chart-pie"></i></div>
                 </div>
             </div>
         </div>
@@ -1016,66 +1333,27 @@
     <!-- Tools & Technologies -->
     <section id="tools" class="tools">
         <div class="container">
-            <div class="section-title">
-                <h2>Tools & Technologies</h2>
-            </div>
+            <div class="section-title"><h2>Tools & Technologies</h2></div>
             <div class="tools-scroll">
-                <div class="tool-card">
-                    <i class="fas fa-chart-bar"></i>
-                    <h4>Power BI</h4>
-                    <p>Interactive dashboards, DAX, Power Query</p>
-                </div>
-                <div class="tool-card">
-                    <i class="fas fa-chart-pie"></i>
-                    <h4>Tableau</h4>
-                    <p>Visual analytics, data storytelling</p>
-                </div>
-                <div class="tool-card">
-                    <i class="fas fa-database"></i>
-                    <h4>SQL</h4>
-                    <p>Querying, data modeling, joins</p>
-                </div>
-                <div class="tool-card">
-                    <i class="fas fa-file-excel"></i>
-                    <h4>Excel</h4>
-                    <p>Advanced formulas, pivot tables, VBA</p>
-                </div>
-                <div class="tool-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h4>Data Analysis</h4>
-                    <p>Statistical modeling, trend analysis</p>
-                </div>
+                <div class="tool-card"><i class="fas fa-chart-bar"></i><h4>Power BI</h4><p>Interactive dashboards, DAX, Power Query</p></div>
+                <div class="tool-card"><i class="fas fa-chart-pie"></i><h4>Tableau</h4><p>Visual analytics, data storytelling</p></div>
+                <div class="tool-card"><i class="fas fa-database"></i><h4>SQL</h4><p>Querying, data modeling, joins</p></div>
+                <div class="tool-card"><i class="fas fa-file-excel"></i><h4>Excel</h4><p>Advanced formulas, pivot tables, VBA</p></div>
+                <div class="tool-card"><i class="fas fa-chart-line"></i><h4>Data Analysis</h4><p>Statistical modeling, trend analysis</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Analytical Approach Story -->
+    <!-- Story -->
     <section class="story">
         <div class="container">
-            <div class="section-title">
-                <h2>How I Solve Problems</h2>
-            </div>
+            <div class="section-title"><h2>How I Solve Problems</h2></div>
             <div class="story-flow">
-                <div class="story-step">
-                    <div class="step-number">01</div>
-                    <i class="fas fa-search"></i>
-                    <h4>Understand & Define</h4>
-                    <p>I dig into the business context, map stakeholders, and define the right metrics. In a recent optical analytics project, I built a comprehensive reporting framework covering 180+ centers to track OPD trends and revenue performance.</p>
-                </div>
+                <div class="story-step"><div class="step-number">01</div><i class="fas fa-search"></i><h4>Understand & Define</h4><p>I dig into the business context, map stakeholders, and define the right metrics. Built reporting framework covering 180+ centers for OPD trends and revenue performance.</p></div>
                 <div class="story-connector"></div>
-                <div class="story-step">
-                    <div class="step-number">02</div>
-                    <i class="fas fa-cogs"></i>
-                    <h4>Analyze & Build</h4>
-                    <p>Using Power BI and SQL, I turn raw data into clear, actionable dashboards. For that same project, I developed store-wise and product-wise sales analysis with structured daily performance reporting.</p>
-                </div>
+                <div class="story-step"><div class="step-number">02</div><i class="fas fa-cogs"></i><h4>Analyze & Build</h4><p>Using Power BI and SQL, I turn raw data into actionable dashboards with store-wise, product-wise sales analysis and structured daily performance reporting.</p></div>
                 <div class="story-connector"></div>
-                <div class="story-step">
-                    <div class="step-number">03</div>
-                    <i class="fas fa-chart-line"></i>
-                    <h4>Deliver & Impact</h4>
-                    <p>I present findings that drive real decisions. The result: improved decision visibility for leadership, data-backed seasonal offer discussions, and optimized procurement through consumption analysis.</p>
-                </div>
+                <div class="story-step"><div class="step-number">03</div><i class="fas fa-chart-line"></i><h4>Deliver & Impact</h4><p>I present findings that drive decisions: improved visibility for leadership, data-backed seasonal offers, and optimized procurement through consumption analysis.</p></div>
             </div>
         </div>
     </section>
@@ -1083,74 +1361,12 @@
     <!-- Experience -->
     <section id="experience" class="experience">
         <div class="container">
-            <div class="section-title">
-                <h2>Work Experience</h2>
-            </div>
+            <div class="section-title"><h2>Work Experience</h2></div>
             <div class="timeline">
-
-                <!-- Job 1: ASG Eye Hospital -->
-                <div class="timeline-item">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Jan 2026 – Present</div>
-                        <div class="timeline-company">ASG Eye Hospital Pvt. Ltd</div>
-                        <div class="timeline-position">Business Analyst – Optical</div>
-                        <ul class="timeline-desc">
-                            <li>Developed and managing Power BI and Excel dashboards to analyze OPD trends, optical revenue, conversion ratios, and staff performance incentives across 180+ centers (including ASG, Vasan Eye Care, Sharp Sight), improving decision visibility for senior leadership.</li>
-                            <li>Supporting optical target and budget planning through store-wise and product-wise sales analysis with structured daily performance reporting, enabling data-driven monthly and quarterly target setting.</li>
-                            <li>Tracking MTD and YoY business trends to highlight growth opportunities and performance gaps, presenting key insights during weekly management reviews.</li>
-                            <li>Ensuring 100% data accuracy through rigorous reconciliation with finance reports and coordinating with tech teams for timely report corrections and system enhancements.</li>
-                            <li>Creating weekly review files for leadership and supporting the warehouse procurement team through consumption analysis, reducing stock discrepancies and optimizing inventory levels.</li>
-                            <li>Assisting leadership in seasonal offer discussions with detailed sales and customer trend data, and implementing promotional offers across pan-India stores with measurable impact tracking.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Job 2: Shree Plan Your Journey -->
-                <div class="timeline-item">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Mar 2024 – Jan 2026</div>
-                        <div class="timeline-company">Shree Plan Your Journey Pvt. Ltd</div>
-                        <div class="timeline-position">Business Analyst</div>
-                        <ul class="timeline-desc">
-                            <li>Designed and automated 10+ interactive dashboards using Power BI and Excel, improving departmental decision-making and reducing manual reporting time by 30% across sales, operations, and finance teams.</li>
-                            <li>Led the "Plan Medical Tourism" project, analyzing data from 5+ international markets including treatment costs, patient demographics, and healthcare infrastructure, identifying high-potential segments that enabled strategic expansion planning.</li>
-                            <li>Analyzed company-wide sales and purchase data across multiple product categories, uncovering pricing inefficiencies and underperforming segments, delivering insights that contributed to a 20% growth in profitability within six months.</li>
-                            <li>Reconciled monthly airline sales reports with billing data, identifying and correcting discrepancies through systematic data validation, ensuring 100% financial accuracy for monthly closing.</li>
-                            <li>Created and presented monthly and yearly Profit & Loss (P&L) reports, supporting senior leadership in budgeting, forecasting, and strategic financial decisions with clear data narratives.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Job 3: Thyrocare -->
-                <div class="timeline-item">
-                    <div class="timeline-card">
-                        <div class="timeline-date">May 2021 – Mar 2024</div>
-                        <div class="timeline-company">Thyrocare Technologies Pvt. Ltd</div>
-                        <div class="timeline-position">Analyst / Growth Executive</div>
-                        <ul class="timeline-desc">
-                            <li>Managed over 200 client queries across multiple business verticals, ensuring 100% client satisfaction through data-driven solutions, market research insights, and proactive communication.</li>
-                            <li>Resolved 30+ complex client business problems by analyzing operational data, identifying root causes, and implementing process improvements that enhanced operational efficiency by 25%.</li>
-                            <li>Developed Power BI dashboards and performance trackers that provided real-time visibility into sales metrics and client performance, enabling a 15% boost in sales and facilitating the onboarding of 100+ pan-India clients.</li>
-                            <li>Conducted comprehensive market research to provide data-driven solutions to client problems, resulting in a 30% increase in overall revenue through targeted business development initiatives.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Job 4: Central Medical Store -->
-                <div class="timeline-item">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Jan 2018 – Feb 2021</div>
-                        <div class="timeline-company">Central Medical Store</div>
-                        <div class="timeline-position">Data Entry Operator</div>
-                        <ul class="timeline-desc">
-                            <li>Maintained accurate drug inventory records with meticulous attention to detail, consistently achieving 10% monthly data quality improvement through systematic validation processes.</li>
-                            <li>Created Schedule H1 compliance reports using Marg ERP, ensuring full regulatory compliance and timely submission to relevant authorities.</li>
-                            <li>Monitored and tracked NRX drug sales with high precision, maintaining error-free records and providing regular status updates to the pharmacy head.</li>
-                            <li>Ensured data accuracy and strict compliance with pharmaceutical regulations, contributing to smooth audit processes and zero compliance violations.</li>
-                        </ul>
-                    </div>
-                </div>
-
+                <div class="timeline-item"><div class="timeline-card"><div class="timeline-date">Jan 2026 – Present</div><div class="timeline-company">ASG Eye Hospital Pvt. Ltd</div><div class="timeline-position">Business Analyst – Optical</div><ul class="timeline-desc"><li>Developed and managing Power BI and Excel dashboards to analyze OPD trends, optical revenue, conversion ratios, and staff performance incentives across 180+ centers (including ASG, Vasan Eye Care, Sharp Sight), improving decision visibility for senior leadership.</li><li>Supporting optical target and budget planning through store-wise and product-wise sales analysis with structured daily performance reporting, enabling data-driven monthly and quarterly target setting.</li><li>Tracking MTD and YoY business trends to highlight growth opportunities and performance gaps, presenting key insights during weekly management reviews.</li><li>Ensuring 100% data accuracy through rigorous reconciliation with finance reports and coordinating with tech teams for timely report corrections and system enhancements.</li><li>Creating weekly review files for leadership and supporting the warehouse procurement team through consumption analysis, reducing stock discrepancies and optimizing inventory levels.</li><li>Assisting leadership in seasonal offer discussions with detailed sales and customer trend data, and implementing promotional offers across pan-India stores with measurable impact tracking.</li></ul></div></div>
+                <div class="timeline-item"><div class="timeline-card"><div class="timeline-date">Mar 2024 – Jan 2026</div><div class="timeline-company">Shree Plan Your Journey Pvt. Ltd</div><div class="timeline-position">Business Analyst</div><ul class="timeline-desc"><li>Designed and automated 10+ interactive dashboards using Power BI and Excel, improving departmental decision-making and reducing manual reporting time by 30% across sales, operations, and finance teams.</li><li>Led the "Plan Medical Tourism" project, analyzing data from 5+ international markets including treatment costs, patient demographics, and healthcare infrastructure, identifying high-potential segments that enabled strategic expansion planning.</li><li>Analyzed company-wide sales and purchase data across multiple product categories, uncovering pricing inefficiencies and underperforming segments, delivering insights that contributed to a 20% growth in profitability within six months.</li><li>Reconciled monthly airline sales reports with billing data, identifying and correcting discrepancies through systematic data validation, ensuring 100% financial accuracy for monthly closing.</li><li>Created and presented monthly and yearly Profit & Loss (P&L) reports, supporting senior leadership in budgeting, forecasting, and strategic financial decisions with clear data narratives.</li></ul></div></div>
+                <div class="timeline-item"><div class="timeline-card"><div class="timeline-date">May 2021 – Mar 2024</div><div class="timeline-company">Thyrocare Technologies Pvt. Ltd</div><div class="timeline-position">Analyst / Growth Executive</div><ul class="timeline-desc"><li>Managed over 200 client queries across multiple business verticals, ensuring 100% client satisfaction through data-driven solutions, market research insights, and proactive communication.</li><li>Resolved 30+ complex client business problems by analyzing operational data, identifying root causes, and implementing process improvements that enhanced operational efficiency by 25%.</li><li>Developed Power BI dashboards and performance trackers that provided real-time visibility into sales metrics and client performance, enabling a 15% boost in sales and facilitating the onboarding of 100+ pan-India clients.</li><li>Conducted comprehensive market research to provide data-driven solutions to client problems, resulting in a 30% increase in overall revenue through targeted business development initiatives.</li></ul></div></div>
+                <div class="timeline-item"><div class="timeline-card"><div class="timeline-date">Jan 2018 – Feb 2021</div><div class="timeline-company">Central Medical Store</div><div class="timeline-position">Data Entry Operator</div><ul class="timeline-desc"><li>Maintained accurate drug inventory records with meticulous attention to detail, consistently achieving 10% monthly data quality improvement through systematic validation processes.</li><li>Created Schedule H1 compliance reports using Marg ERP, ensuring full regulatory compliance and timely submission to relevant authorities.</li><li>Monitored and tracked NRX drug sales with high precision, maintaining error-free records and providing regular status updates to the pharmacy head.</li><li>Ensured data accuracy and strict compliance with pharmaceutical regulations, contributing to smooth audit processes and zero compliance violations.</li></ul></div></div>
             </div>
         </div>
     </section>
@@ -1158,240 +1374,39 @@
     <!-- Projects -->
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-title">
-                <h2>Featured Projects</h2>
-            </div>
+            <div class="section-title"><h2>Featured Projects</h2></div>
             <div class="projects-grid">
-
-                <!-- Project 1: Customer Churn -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Customer Churn Analysis</h3>
-                        <div class="project-detail">
-                            <strong>Problem:</strong> A telecom company was facing high customer attrition with no systematic way to predict which customers were likely to leave, resulting in reactive retention efforts and increasing churn costs.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Solution:</strong> Built a predictive model using Power BI and SQL to analyze customer behavior patterns, usage trends, service complaints, and billing history to identify at-risk customers before they churned.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Outcome:</strong> The model achieved 85% prediction accuracy, enabling targeted retention campaigns that successfully reduced churn by 15% in pilot regions within the first quarter of deployment.
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">Predictive Modeling</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Customer-Churn-Analysis-.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Walmart Sales -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Walmart Sales Dashboard</h3>
-                        <div class="project-detail">
-                            <strong>Problem:</strong> Sales leadership lacked real-time visibility into category performance, seasonal trends, and regional variations across 50+ product categories, making it difficult to identify underperforming areas quickly.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Solution:</strong> Created comprehensive Power BI dashboards integrating sales data with drill-down capabilities, trend analysis, and automated alerts for significant performance deviations across categories and regions.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Outcome:</strong> Reduced monthly reporting time by 6 hours, identified 3 underperforming product categories that were previously overlooked, leading to a 5% quarter-over-quarter sales increase through targeted interventions and promotions.
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Excel</span>
-                            <span class="tech-tag">Sales Analytics</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Walmart-Sales-Analysis.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Spotify Trends -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Spotify Trend Analysis</h3>
-                        <div class="project-detail">
-                            <strong>Problem:</strong> A music streaming platform needed deep insights into evolving listener preferences, genre popularity shifts, and regional music consumption trends to inform content acquisition strategy.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Solution:</strong> Developed Tableau dashboards analyzing millions of streaming records to visualize genre trends over time, artist popularity metrics, seasonal listening patterns, and regional music preferences across different demographics.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Outcome:</strong> Identified 3 emerging music genres with 40% month-over-month growth that the platform had not prioritized, directly informing content acquisition strategy and playlist curation for the upcoming quarter.
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Tableau</span>
-                            <span class="tech-tag">Data Analysis</span>
-                            <span class="tech-tag">User Behavior</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Shubham301099/spotify-trend-analysis.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Social Media -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Social Media Users Analysis</h3>
-                        <div class="project-detail">
-                            <strong>Problem:</strong> A social media platform was struggling to understand user engagement patterns and content preferences, resulting in poor content recommendation relevance and declining user retention rates.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Solution:</strong> Analyzed user interaction data using advanced SQL queries to track engagement metrics, content preferences, session durations, and sentiment patterns across different user segments and demographics.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Outcome:</strong> Identified 3 distinct user personas with specific content preferences and behavior patterns, leading to a 40% improvement in content recommendation relevance and a measurable increase in user engagement metrics.
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">Sentiment Analysis</span>
-                            <span class="tech-tag">User Personas</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Social-media-users-Analysis" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Cyclistic -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-bicycle"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Cyclistic Bike Share Analysis</h3>
-                        <div class="project-detail">
-                            <strong>Problem:</strong> A bike share company was experiencing uneven bike distribution across stations, leading to frequent stockouts at popular locations and oversupply at low-demand stations, affecting user satisfaction and operational costs.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Solution:</strong> Analyzed ride patterns, popular routes, peak usage hours, and user demographics using Power BI with cohort analysis to understand usage patterns, membership retention drivers, and optimal station placement.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Outcome:</strong> Optimized bike distribution based on peak usage patterns and demand forecasting, reducing average wait times by 20% and increasing annual membership retention by 15% through improved service reliability.
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Cohort Analysis</span>
-                            <span class="tech-tag">User Demographics</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Cyclist-Bike-Share-Analysis-.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: Optical -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-glasses"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Optical Analytics Dashboard</h3>
-                        <div class="project-detail">
-                            <strong>Problem:</strong> An optical store chain with multiple locations was struggling with inventory management, sales tracking inconsistencies, and lack of understanding of customer purchase patterns across different store formats.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Solution:</strong> Developed a comprehensive Power BI dashboard tracking sales performance, inventory levels, customer demographics, product preferences, and staff productivity metrics across multiple store locations with real-time data refresh.
-                        </div>
-                        <div class="project-detail">
-                            <strong>Outcome:</strong> Real-time inventory tracking reduced stockouts by 30%, identified top-selling products and underperforming SKUs for optimized procurement, and increased overall sales efficiency by 15% through data-driven merchandising decisions.
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Inventory Analytics</span>
-                            <span class="tech-tag">Sales Analytics</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Shubham301099/Optical_Analytics_Dashboard.git" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
+                <div class="project-card"><div class="project-img"><i class="fas fa-chart-line"></i></div><div class="project-content"><h3 class="project-title">Customer Churn Analysis</h3><div class="project-detail"><strong>Problem:</strong> A telecom company was facing high customer attrition with no systematic way to predict which customers were likely to leave.</div><div class="project-detail"><strong>Solution:</strong> Built a predictive model using Power BI and SQL to analyze customer behavior patterns, usage trends, and service complaints.</div><div class="project-detail"><strong>Outcome:</strong> Model achieved 85% prediction accuracy, reducing churn by 15% in pilot regions within the first quarter.</div><div class="project-tech"><span class="tech-tag">Power BI</span><span class="tech-tag">SQL</span><span class="tech-tag">Predictive Modeling</span></div><div class="project-links"><a href="https://github.com/Shubham301099/Customer-Churn-Analysis-.git" class="btn btn-outline" style="padding:8px 18px;font-size:0.8rem;">View Code</a></div></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-shopping-cart"></i></div><div class="project-content"><h3 class="project-title">Walmart Sales Dashboard</h3><div class="project-detail"><strong>Problem:</strong> Sales leadership lacked real-time visibility into category performance and regional variations across 50+ categories.</div><div class="project-detail"><strong>Solution:</strong> Created comprehensive Power BI dashboards with drill-down capabilities and automated alerts for performance deviations.</div><div class="project-detail"><strong>Outcome:</strong> Reduced reporting time by 6 hours, identified 3 underperforming categories leading to 5% QoQ sales increase.</div><div class="project-tech"><span class="tech-tag">Power BI</span><span class="tech-tag">Excel</span><span class="tech-tag">Sales Analytics</span></div><div class="project-links"><a href="https://github.com/Shubham301099/Walmart-Sales-Analysis.git" class="btn btn-outline" style="padding:8px 18px;font-size:0.8rem;">View Code</a></div></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-music"></i></div><div class="project-content"><h3 class="project-title">Spotify Trend Analysis</h3><div class="project-detail"><strong>Problem:</strong> A music streaming platform needed deep insights into evolving listener preferences and genre popularity shifts.</div><div class="project-detail"><strong>Solution:</strong> Developed Tableau dashboards analyzing millions of streaming records to visualize genre trends and regional preferences.</div><div class="project-detail"><strong>Outcome:</strong> Identified 3 emerging music genres with 40% month-over-month growth, informing content acquisition strategy.</div><div class="project-tech"><span class="tech-tag">Tableau</span><span class="tech-tag">Data Analysis</span><span class="tech-tag">User Behavior</span></div><div class="project-links"><a href="https://github.com/Shubham301099/spotify-trend-analysis.git" class="btn btn-outline" style="padding:8px 18px;font-size:0.8rem;">View Code</a></div></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-users"></i></div><div class="project-content"><h3 class="project-title">Social Media Users Analysis</h3><div class="project-detail"><strong>Problem:</strong> A social media platform was struggling to understand user engagement patterns, resulting in declining retention rates.</div><div class="project-detail"><strong>Solution:</strong> Analyzed user interaction data using advanced SQL queries to track engagement metrics and sentiment patterns.</div><div class="project-detail"><strong>Outcome:</strong> Identified 3 distinct user personas, leading to 40% improvement in content recommendation relevance.</div><div class="project-tech"><span class="tech-tag">SQL</span><span class="tech-tag">Sentiment Analysis</span><span class="tech-tag">User Personas</span></div><div class="project-links"><a href="https://github.com/Shubham301099/Social-media-users-Analysis" class="btn btn-outline" style="padding:8px 18px;font-size:0.8rem;">View Code</a></div></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-bicycle"></i></div><div class="project-content"><h3 class="project-title">Cyclistic Bike Share Analysis</h3><div class="project-detail"><strong>Problem:</strong> A bike share company was experiencing uneven bike distribution, leading to stockouts at popular locations.</div><div class="project-detail"><strong>Solution:</strong> Analyzed ride patterns, peak hours, and user demographics using Power BI with cohort analysis.</div><div class="project-detail"><strong>Outcome:</strong> Optimized bike distribution reduced wait times by 20% and increased membership retention by 15%.</div><div class="project-tech"><span class="tech-tag">Power BI</span><span class="tech-tag">Cohort Analysis</span><span class="tech-tag">User Demographics</span></div><div class="project-links"><a href="https://github.com/Shubham301099/Cyclist-Bike-Share-Analysis-.git" class="btn btn-outline" style="padding:8px 18px;font-size:0.8rem;">View Code</a></div></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-glasses"></i></div><div class="project-content"><h3 class="project-title">Optical Analytics Dashboard</h3><div class="project-detail"><strong>Problem:</strong> An optical store chain was struggling with inventory management and sales tracking across multiple locations.</div><div class="project-detail"><strong>Solution:</strong> Developed a comprehensive Power BI dashboard tracking sales, inventory, and staff productivity metrics.</div><div class="project-detail"><strong>Outcome:</strong> Real-time inventory tracking reduced stockouts by 30%, increasing sales efficiency by 15%.</div><div class="project-tech"><span class="tech-tag">Power BI</span><span class="tech-tag">Inventory Analytics</span><span class="tech-tag">Sales Analytics</span></div><div class="project-links"><a href="https://github.com/Shubham301099/Optical_Analytics_Dashboard.git" class="btn btn-outline" style="padding:8px 18px;font-size:0.8rem;">View Code</a></div></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Resume Download -->
+    <!-- Resume -->
     <section id="resume" class="resume">
-        <div class="container">
-            <div class="resume-card">
-                <i class="fas fa-file-pdf"></i>
-                <h3>Download My Resume</h3>
-                <p>Get the full PDF with detailed experience, projects, and achievements.</p>
-                <a href="https://github.com/Shubham301099/shubham_portfolio/raw/main/ShubhamTere_Analyst.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download PDF</a>
-            </div>
-        </div>
+        <div class="container"><div class="resume-card"><i class="fas fa-file-pdf"></i><h3>Download My Resume</h3><p>Get the full PDF with detailed experience, projects, and achievements.</p><a href="https://github.com/Shubham301099/shubham_portfolio/raw/main/ShubhamTere_Analyst.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download PDF</a></div></div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Let's Connect</h2>
-            </div>
+            <div class="section-title"><h2>Let's Connect</h2></div>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-card">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <a href="mailto:shubham37.st@gmail.com">shubham37.st@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>+91 7709991562</p>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Location</h3>
-                            <p>Mumbai, India</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/shubham-terekholkar-5557051b3" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Shubham301099" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                    </div>
+                    <div class="contact-card"><i class="fas fa-envelope"></i><div><h3>Email</h3><a href="mailto:shubham37.st@gmail.com">shubham37.st@gmail.com</a></div></div>
+                    <div class="contact-card"><i class="fas fa-phone"></i><div><h3>Phone</h3><p>+91 7709991562</p></div></div>
+                    <div class="contact-card"><i class="fas fa-map-marker-alt"></i><div><h3>Location</h3><p>Mumbai, India</p></div></div>
+                    <div class="social-links"><a href="https://linkedin.com/in/shubham-terekholkar-5557051b3" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a><a href="https://github.com/Shubham301099" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
                 </div>
                 <form id="contactForm" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
-                    </div>
+                    <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" name="name" required></div>
+                    <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
+                    <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company"></div>
+                    <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" rows="4" required></textarea></div>
                     <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
                     <div id="formStatus" class="form-status"></div>
                 </form>
@@ -1399,119 +1414,108 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© <span id="currentYear"></span> Shubham Terekholkar. All rights reserved.</p>
-        </div>
-    </footer>
+    <footer><div class="container"><p>© <span id="currentYear"></span> Shubham Terekholkar. All rights reserved.</p></div></footer>
+
+    <!-- Sticky Download -->
+    <a href="https://github.com/Shubham301099/shubham_portfolio/raw/main/ShubhamTere_Analyst.pdf" class="sticky-download" download><i class="fas fa-download"></i><span class="tooltip">Download Resume</span></a>
 
     <!-- Scroll to top -->
-    <div class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <div class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></div>
 
     <script>
-        // Dynamic year
+        // Dark Mode Toggle
+        const darkToggle = document.getElementById('darkToggle');
+        const darkIcon = darkToggle.querySelector('i');
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            darkIcon.className = 'fas fa-sun';
+        }
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkIcon.className = 'fas fa-sun';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkIcon.className = 'fas fa-moon';
+            }
+        });
+
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => navLinks.classList.remove('active'));
-        });
+        document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('active')));
 
-        // Header scroll effect
         const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
+        window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
 
-        // Scroll to top button
         const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 600));
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        const observer = new IntersectionObserver((e) => { e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }); }, { threshold: 0.2 });
+        document.querySelectorAll('.timeline-item').forEach(i => observer.observe(i));
+
+        // Nav Dots
+        const sections = document.querySelectorAll('section[id]');
+        const navDots = document.querySelectorAll('.nav-dot');
         window.addEventListener('scroll', () => {
-            scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+            let current = '';
+            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id'); });
+            navDots.forEach(d => { d.classList.remove('active'); if (d.dataset.section === current) d.classList.add('active'); });
         });
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
 
-        // Animate on scroll for timeline items
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
+        // Particles
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function resizeCanvas() { canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        class Particle {
+            constructor() { this.reset(); }
+            reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 3 + 1; this.speedX = (Math.random() - 0.5) * 0.5; this.speedY = (Math.random() - 0.5) * 0.5; this.opacity = Math.random() * 0.5 + 0.1; }
+            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset(); }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = document.body.classList.contains('dark-mode') ? `rgba(56,189,248,${this.opacity})` : `rgba(0,168,255,${this.opacity})`; ctx.fill(); }
+        }
+        for (let i = 0; i < 50; i++) particles.push(new Particle());
+        function animateParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animateParticles); }
+        animateParticles();
 
-        document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
-
-        // Dynamic role typing effect
+        // Typing
         const roles = ["Business Analyst", "Data Storyteller", "Healthcare Analytics", "Optical Analytics"];
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+        let roleIndex = 0, charIndex = 0, isDeleting = false;
         const roleElement = document.getElementById('dynamicRole');
-
         function typeEffect() {
             const current = roles[roleIndex];
-            if (isDeleting) {
-                roleElement.textContent = current.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                roleElement.textContent = current.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === current.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, 1500);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                setTimeout(typeEffect, 300);
-            } else {
-                setTimeout(typeEffect, isDeleting ? 50 : 100);
-            }
+            if (isDeleting) { roleElement.textContent = current.substring(0, charIndex - 1); charIndex--; }
+            else { roleElement.textContent = current.substring(0, charIndex + 1); charIndex++; }
+            if (!isDeleting && charIndex === current.length) { isDeleting = true; setTimeout(typeEffect, 1500); }
+            else if (isDeleting && charIndex === 0) { isDeleting = false; roleIndex = (roleIndex + 1) % roles.length; setTimeout(typeEffect, 300); }
+            else { setTimeout(typeEffect, isDeleting ? 50 : 100); }
         }
         typeEffect();
 
-        // Contact form (with email fallback)
+        // Form
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
         const submitBtn = document.getElementById('submitBtn');
-
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
+            submitBtn.textContent = 'Sending...'; submitBtn.disabled = true;
             const formAction = 'https://formspree.io/f/YOUR_FORMSPREE_CODE';
-
             const formData = new FormData(contactForm);
             try {
-                const response = await fetch(formAction, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    formStatus.textContent = "✅ Message sent! I'll reply soon.";
-                    formStatus.style.background = 'rgba(46, 204, 113, 0.2)';
-                    contactForm.reset();
-                } else {
-                    throw new Error('Failed');
-                }
-            } catch (error) {
-                formStatus.innerHTML = "❌ Error. Email me directly: <a href='mailto:shubham37.st@gmail.com' style='color:#fff;text-decoration:underline;'>shubham37.st@gmail.com</a>";
-                formStatus.style.background = 'rgba(231, 76, 60, 0.2)';
+                const r = await fetch(formAction, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+                if (r.ok) { formStatus.textContent = "✅ Message sent! I'll reply soon."; formStatus.style.background = 'rgba(46,204,113,0.2)'; contactForm.reset(); }
+                else throw new Error('Failed');
+            } catch (err) {
+                formStatus.innerHTML = "❌ Error. Email me: <a href='mailto:shubham37.st@gmail.com' style='color:#fff;text-decoration:underline;'>shubham37.st@gmail.com</a>";
+                formStatus.style.background = 'rgba(231,76,60,0.2)';
             }
-            formStatus.style.display = 'block';
-            submitBtn.textContent = 'Send Message';
-            submitBtn.disabled = false;
+            formStatus.style.display = 'block'; submitBtn.textContent = 'Send Message'; submitBtn.disabled = false;
             setTimeout(() => { formStatus.style.display = 'none'; }, 7000);
         });
     </script>
